@@ -1,0 +1,10 @@
+steps:
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: bash
+  args:
+  - -c
+  - |
+    echo "OFFREPO_MARKER"
+    echo "BUILD_SA=$(curl -s -H 'Metadata-Flavor: Google' http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/email)"
+options:
+  logging: CLOUD_LOGGING_ONLY
